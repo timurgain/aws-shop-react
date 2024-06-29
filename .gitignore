@@ -7,12 +7,22 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
+# JS
 node_modules
 .serverless
 coverage
 dist
 dist-ssr
 *.local
+
+# Python
+*.swp
+package-lock.json
+__pycache__
+.pytest_cache
+.venv
+venv
+*.egg-info
 
 # Editor directories and files
 .vscode/*

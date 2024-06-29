@@ -6,4 +6,4 @@ from infra.static_site import StaticSite
 class StaticSiteStack(cdk.Stack):
     def __init__(self, scope: Construct, id: str, **kwargs):
         super().__init__(scope, id, **kwargs)
-        StaticSite(self, "JSWeb-StaticWebsite")
+        StaticSite(self, "TM-Shop-Static-Website-Construct")

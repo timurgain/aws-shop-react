@@ -1,0 +1,11 @@
+###
+
+POST https://qe1e1k3qlc.execute-api.eu-north-1.amazonaws.com/development/sum HTTP/1.1
+Content-Type: application/json
+
+{
+    "first_number": 90,
+    "second_number": 61
+}
+
+###

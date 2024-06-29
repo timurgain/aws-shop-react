@@ -12,13 +12,13 @@ class StaticSite(Construct):
         super().__init__(scope, id, **kwargs)
 
         cloud_front_oai = cloudfront.OriginAccessIdentity(
-            self, "WebTM-OAI", comment="Allows CloudFront to access the bucket"
+            self, "TM-Shop-OAI", comment="Allows CloudFront to access the bucket"
         )
 
         site_bucket = s3.Bucket(
             self,
-            "WebTM-StaticBucket",
-            bucket_name="tm-web-nodejs-aws-shop-react",
+            "TM-Shop-Static-Bucket",
+            bucket_name="tm-shop-static-website-react",
             website_index_document="index.html",
             public_read_access=False,
             block_public_access=s3.BlockPublicAccess.BLOCK_ALL,
@@ -38,7 +38,7 @@ class StaticSite(Construct):
 
         distribution = cloudfront.CloudFrontWebDistribution(
             self,
-            "WebTM-Distribution",
+            "TM-Shop-Distribution",
             origin_configs=[
                 cloudfront.SourceConfiguration(
                     s3_origin_source=cloudfront.S3OriginConfig(
@@ -52,7 +52,7 @@ class StaticSite(Construct):
 
         s3deploy.BucketDeployment(
             self,
-            "WebTM-BucketDeployment",
+            "TM-Shop-Bucket-Deployment",
             sources=[s3deploy.Source.asset("../dist")],
             destination_bucket=site_bucket,
             distribution=distribution,
